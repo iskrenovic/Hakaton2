@@ -4,6 +4,7 @@ package com.example.covid;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         mapsFragment = new MapsFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, this.mapsFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.mapsFragment).commitAllowingStateLoss();
     }
 }
