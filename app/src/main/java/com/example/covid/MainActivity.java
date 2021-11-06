@@ -1,7 +1,9 @@
 package com.example.covid;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.covid.UI.HomeFragment;
 import com.example.covid.UI.MapsFragment;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mapsFragment = new MapsFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, this.mapsFragment).commitAllowingStateLoss();
     }
