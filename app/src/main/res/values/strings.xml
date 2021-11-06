@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Covid</string>
+
+    <string name="daily_challenge_channel_name">Daily Challenge notifications</string>
+    <string name="daily_challenge_channel_desc">These are notification of challenges.</string>
+    <string name="daily_challenge_notf_title">Remember to do your daily challenges</string>
+    <string name="daily_challenge_notf_text">Click to see all of your daily challenges for today.</string>
+
+    <string name="push_notifications_channel_name">Positive person encounter</string>
+    <string name="push_notifications_channel_desc">This notifies you if you were in direct contact with a person that is positive.</string>
+    <string name="push_notifications_notf_title">You have been in the proximity of a person that is COVID-positive!</string>
+    <string name="push_notifications_notf_text">No need to panic, just have this in mind.</string>
 </resources>
