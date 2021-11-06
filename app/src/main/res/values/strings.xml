@@ -10,4 +10,8 @@
     <string name="push_notifications_channel_desc">This notifies you if you were in direct contact with a person that is positive.</string>
     <string name="push_notifications_notf_title">You have been in the proximity of a person that is COVID-positive!</string>
     <string name="push_notifications_notf_text">No need to panic, just have this in mind.</string>
+
+    <string name="challenge1_text">Hands washed today?</string>
+    <string name="challenge2_text">Did you use your mask today?</string>
+    <string name="challenge3_text">Did you disinfect your belongings?</string>
 </resources>
