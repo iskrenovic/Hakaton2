@@ -5,9 +5,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.covid.UI.HomeFragment;
-import com.example.covid.UI.MapsFragment;
-
 public class MainActivity extends AppCompatActivity {
 
     private HomeFragment homeFragment;
