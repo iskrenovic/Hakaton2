@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.covid"
-        minSdk 21
+        minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -65,6 +65,8 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.1'
     implementation 'com.google.android.material:material:1.0.0-alpha3'
+
+    implementation "androidx.core:core:1.6.0"
 
 
 }
