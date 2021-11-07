@@ -66,7 +66,6 @@ public class RegisterSecondFragment extends Fragment implements RegisterSecondVi
                 userLocation=new Location("");
                 userLocation.setLongitude(clickLatLng[0].longitude);
                 userLocation.setLatitude(clickLatLng[0].latitude);
-                Profile.setLocation(userLocation);
                 map.clear();
                 map.addMarker(new MarkerOptions().position(clickLatLng[0]));
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(clickLatLng[0],map.getCameraPosition().zoom));

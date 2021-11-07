@@ -33,10 +33,19 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private static GoogleMap map;
     private MapView mapView;
     private ArrayList<Polygon> cubes=new ArrayList<>();
+    private ArrayList<Coordinate> cubeCoordinate=new ArrayList<>();
     private boolean drawn=false;
     private static Location currentLocation;
 
+    private class Coordinate{
+        public int x,y;
+        public Coordinate(int x,int y){ this.x=x;this.y=y;}
+        public String toString(){
+            String result=""+x+""+y;
+            return result;
+        }
 
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -85,6 +94,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 .fillColor(R.color.purple_700)
                 .strokeColor(R.color.transparent));
                 cubes.add(p);
+                cubeCoordinate.add(new Coordinate(i,j));
             }
         }
     }

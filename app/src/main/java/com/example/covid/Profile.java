@@ -8,12 +8,12 @@ import com.example.covid.Storage.LocalSave;
 public class Profile {
     private static final String PROFILE_FILE_NAME = "profile";
 
-    private static String name;
-    private static String username;
-    private static String password;
-    private static String mail;
-    private static String jmbg;
-    private static Location location;
+    private  String name;
+    private  String username;
+    private  String password;
+    private  String mail;
+    private  String jmbg;
+    private  Location location;
 
     public Profile(String username, String name, String password, String mail){
         this.username = username;
@@ -39,8 +39,8 @@ public class Profile {
         this.jmbg = jmbg;
     }
 
-    public static void setLocation(Location newLocation) {
-        location = newLocation;
+    public void setLocation(Location newLocation) {
+        this.location = newLocation;
     }
 
     public String toString(){
