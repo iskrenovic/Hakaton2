@@ -1,17 +1,28 @@
 package com.example.covid;
 
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.location.LocationRequest;
 import android.os.Bundle;
+import android.os.IBinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.covid.Location.LocationHandler;
 import com.example.covid.Notifications.NotificationCenter;
 import com.example.covid.Storage.ServerConnection;
+import com.google.android.gms.location.FusedLocationProviderClient;
 
 public class MainActivity extends AppCompatActivity implements ServerConnection.ConnectionCallback {
 
     private static final String URL = "http://159.89.18.129/api/";
+
+    private FusedLocationProviderClient fusedLocationProviderClient;
+    private LocationRequest locationRequest;
+    private int fetchLocationMinutes = 20;
+    private LocationHandler locationHandler;
 
     private HomeFragment homeFragment;
     private MapsFragment mapsFragment;
@@ -52,4 +63,15 @@ public class MainActivity extends AppCompatActivity implements ServerConnection.
     public void locationDataFailed() {
 
     }
+    private ServiceConnection locationServiceConnection=new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            locationHandler=((LocationHandler.LocationHandlerBinder)service).getService();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            locationHandler=null;
+        }
+    };
 }

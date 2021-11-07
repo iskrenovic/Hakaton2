@@ -1,6 +1,7 @@
 package com.example.covid;
 
 
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,17 +29,21 @@ import java.util.ArrayList;
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private MapsFragmentBinding binding;
     private MapsViewModel viewModel;
-    private GoogleMap map;
+    private static GoogleMap map;
     private MapView mapView;
     private ArrayList<Polygon> cubes=new ArrayList<>();
     private boolean drawn=false;
-
+    private static Location currentLocation;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.maps_fragment, container, false);
+
+        currentLocation=new Location("");
+        currentLocation.setLatitude(43.32);
+        currentLocation.setLongitude(21.89);
 
         SupportMapFragment supportMapFragment= (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(this);
@@ -50,6 +55,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         }
         cubes.clear();
         drawn=false;
+    }
+    public static void setCurrentLocation(Location newLocation){
+        currentLocation.set(newLocation);
+        FocusMapOnLocation();
     }
     private void setCubes(double dimension){
         drawn=true;
@@ -82,8 +91,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         map=googleMap;
         map.getUiSettings().setZoomControlsEnabled(true);
-        map.addMarker(new MarkerOptions().position(new LatLng(45.1,37.5)));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(45.1,37.5), 10));
+        LatLng locationLatLng=new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+        map.addMarker(new MarkerOptions().position(locationLatLng));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(locationLatLng, 10));
         map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
             @Override
             public void onCameraChange(@NonNull CameraPosition cameraPosition) {
@@ -94,5 +104,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 else if(map.getCameraPosition().zoom<15) clearPolygons();
             }
         });
+    }
+    public static void FocusMapOnLocation(){
+        if(currentLocation!=null)
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()),10));
     }
 }
