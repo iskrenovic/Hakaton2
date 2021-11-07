@@ -29,7 +29,8 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
-    public void DisplayMessege(String mess){
-        if(viewModel!=null) viewModel.setText(mess);
+
+    public void DisplayMessage(String mess){
+        if(viewModel!=null)viewModel.setText(mess);
     }
 }

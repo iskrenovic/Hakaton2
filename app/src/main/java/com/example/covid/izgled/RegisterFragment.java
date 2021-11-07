@@ -39,10 +39,14 @@ public class RegisterFragment extends Fragment implements RegisterViewModel.Call
 
     @Override
     public void nextStep(String name, String email, String password, String username) {
-        callback.nextStep(new Profile(username, name, email, password));
+        Profile.username = username;
+        Profile.name = name;
+        Profile.mail = email;
+        Profile.password = password;
+        callback.nextStep();
     }
 
     public interface Callback{
-        void nextStep(Profile profile);
+        void nextStep();
     }
 }

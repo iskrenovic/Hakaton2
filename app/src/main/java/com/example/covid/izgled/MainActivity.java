@@ -15,7 +15,7 @@ import com.example.covid.R;
 import com.example.covid.Storage.ServerConnection;
 import com.google.android.gms.location.FusedLocationProviderClient;
 
-public class MainActivity extends AppCompatActivity implements ServerConnection.ConnectionCallback {
+public class MainActivity extends AppCompatActivity implements ServerConnection.DataCallback {
 
     private static final String URL = "http://159.89.18.129/api/";
 
@@ -42,18 +42,18 @@ public class MainActivity extends AppCompatActivity implements ServerConnection.
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.mapsFragment).commitAllowingStateLoss();
 
         ServerConnection.setRequestQueue(this);
-        ServerConnection.setCallback(this);
+        ServerConnection.setDataCallback(this);
         ServerConnection.requestUserData();
     }
 
     @Override
     public void userDataReceived(String data) {
-        homeFragment.DisplayMessege(data);
+        homeFragment.DisplayMessage(data);
     }
 
     @Override
     public void userDataFailed() {
-        homeFragment.DisplayMessege("fail");
+        homeFragment.DisplayMessage("fail");
     }
 
     @Override
