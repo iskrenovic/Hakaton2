@@ -115,7 +115,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
         int startY = (int) Math.floor(bounds.southwest.latitude / size);
         int endY = (int) Math.ceil(bounds.northeast.latitude / size);
 
-        jsonArray = new JSONArray();
         /*for (int i = startX; i <= endX; i++) {
             for (int j = startY; j <= endY; j++) {
                 JSONObject jsonObject = new JSONObject();
@@ -129,6 +128,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
             }
         }*/
         JSONObject jsonObject= new JSONObject();
+        JSONObject request=null;
+        jsonArray=new JSONArray();
         try {
             jsonObject.put("longitude",1);
             jsonObject.put("latitude",1);
@@ -137,11 +138,23 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
             jsonObject.put("longitude",11);
             jsonObject.put("latitude",1);
             jsonArray.put(jsonObject);
+            request= new JSONObject();
+            request.put("Cubes",jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        String request="Melose: "+jsonArray.toString();
-        ServerConnection.getCubes(getContext(),request);
+        request=new JSONObject();
+        try {
+            request.put("Cubes",jsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String s=request.toString();
+        try {
+            ServerConnection.getCubes(getContext(),new JSONArray(s));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         Random r= new Random();
         r.setSeed(7112021);
@@ -149,7 +162,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
         for (int i = startX; i <= endX; i++) {
             for (int j = startY; j <= endY; j++) {
                 int color=0x00ff0000;
-                int transparency=r.nextInt(255);
+                int transparency=r.nextInt(120);
                 color+=transparency*256*256*256;
                 Polygon p = map.addPolygon(new PolygonOptions()
                         .clickable(true)

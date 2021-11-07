@@ -126,16 +126,11 @@ public class ServerConnection {
         }
 
     }
-    public static void getCubes(Context cx, String cubeRequest){
+    public static void getCubes(Context cx, JSONArray jsonArray){
         if(queue == null){
             setRequestQueue(cx);
         }
-        JSONArray jsonArray=null;
-        try {
-            jsonArray=new JSONArray(cubeRequest);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST, URL + "location/manylocations", jsonArray, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
