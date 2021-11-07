@@ -1,4 +1,4 @@
-package com.example.covid;
+package com.example.covid.UI;
 
 
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.covid.R;
 import com.example.covid.databinding.HomeFragmentBinding;
 
 public class HomeFragment extends Fragment {

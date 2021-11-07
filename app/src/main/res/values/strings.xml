@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Covid</string>
 
+    <string name="continue_text">Continue</string>
+
+
     <string name="daily_challenge_channel_name">Daily Challenge notifications</string>
     <string name="daily_challenge_channel_desc">These are notification of challenges.</string>
     <string name="daily_challenge_notf_title">Remember to do your daily challenges</string>
