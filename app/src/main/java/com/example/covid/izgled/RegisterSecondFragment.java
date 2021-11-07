@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.covid.Profile;
 import com.example.covid.R;
 import com.example.covid.databinding.RegisterSecondFragmentBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;

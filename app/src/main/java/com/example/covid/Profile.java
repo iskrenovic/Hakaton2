@@ -5,43 +5,17 @@ import android.location.Location;
 
 import com.example.covid.Storage.LocalSave;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Profile {
     private static final String PROFILE_FILE_NAME = "profile";
-
-    private  String name;
-    private  String username;
-    private  String password;
-    private  String mail;
-    private  String jmbg;
-    private  Location location;
-
-    public Profile(String username, String name, String password, String mail){
-        this.username = username;
-        this.name = name;
-        this.password = password;
-        this.mail = mail;
-    }
-
-    public Profile(String mail, String name, String jmbg, Location location){
-        this.mail = mail;
-        this.name = name;
-        this.jmbg = jmbg;
-        this.location = location;
-    }
-
-    public Profile(String mail, String name, Location location){
-        this.mail = mail;
-        this.name = name;
-        this.location = location;
-    }
-
-    public void setJmbg(String jmbg) {
-        this.jmbg = jmbg;
-    }
-
-    public void setLocation(Location newLocation) {
-        this.location = newLocation;
-    }
+    public static String name;
+    public static String username;
+    public static String password;
+    public static String mail;
+    public static String jmbg;
+    public static Location location;
 
     public String toString(){
         String output = "";
@@ -49,6 +23,17 @@ public class Profile {
         output+=name + "\n";
         output+=location.toString() + "\n";
         return output;
+    }
+
+    public static JSONObject toJSONObject() throws JSONException {
+        JSONObject data = new JSONObject();
+        data.put("document_id",jmbg);
+        data.put("username", username);
+        data.put("name",name);
+        data.put("email",mail);
+        data.put("adress", String.valueOf(location.getLatitude()) + String.valueOf(location.getLongitude()));
+        data.put("password", password);
+        return data;
     }
 
     public void saveProfile(Context cx){
