@@ -1,6 +1,5 @@
-package com.example.covid.UI;
+package com.example.covid.izgled;
 
-import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,21 +13,21 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covid.Profile;
 import com.example.covid.R;
-import com.example.covid.databinding.RegisterSecondFragmentBinding;
+import com.example.covid.databinding.RegisterFragmentBinding;
 
-public class RegisterSecondFragment extends Fragment implements RegisterSecondViewModel.Callback {
+public class RegisterFragment extends Fragment implements RegisterViewModel.Callback{
 
-    private RegisterSecondFragmentBinding binding;
-    private RegisterSecondViewModel viewModel;
+    private RegisterFragmentBinding binding;
+    private RegisterViewModel viewModel;
 
     private Callback callback;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.register_second_fragment, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.register_fragment, container, false);
         binding.setLifecycleOwner(this);
-        viewModel = ViewModelProviders.of(this).get(RegisterSecondViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
         viewModel.setCallback(this);
         binding.setVm(viewModel);
         return this.binding.getRoot();
@@ -39,13 +38,11 @@ public class RegisterSecondFragment extends Fragment implements RegisterSecondVi
     }
 
     @Override
-    public void nextStep(String jmbg, Location location) {
-        callback.nextStep(jmbg, location);
+    public void nextStep(String name, String email, String password, String username) {
+        callback.nextStep(new Profile(username, name, email, password));
     }
-
 
     public interface Callback{
-        void nextStep(String jmbg, Location location);
+        void nextStep(Profile profile);
     }
-
 }

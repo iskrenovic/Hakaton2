@@ -1,4 +1,4 @@
-package com.example.covid.UI;
+package com.example.covid.izgled;
 
 
 import android.content.ComponentName;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements ServerConnection.
 
     private HomeFragment homeFragment;
     private MapsFragment mapsFragment;
+    private RegisterSecondFragment registerSecondFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements ServerConnection.
 
         homeFragment = new HomeFragment();
         mapsFragment = new MapsFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.homeFragment).commitAllowingStateLoss();
+        registerSecondFragment=new RegisterSecondFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.registerSecondFragment).commitAllowingStateLoss();
 
         ServerConnection.setRequestQueue(this);
         ServerConnection.setCallback(this);

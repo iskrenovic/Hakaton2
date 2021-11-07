@@ -1,4 +1,4 @@
-package com.example.covid.UI;
+package com.example.covid.izgled;
 
 import android.location.Location;
 import android.os.Bundle;

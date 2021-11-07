@@ -1,4 +1,4 @@
-package com.example.covid.UI;
+package com.example.covid.izgled;
 
 import androidx.fragment.app.Fragment;
 

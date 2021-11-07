@@ -1,10 +1,8 @@
 package com.example.covid.Location;
 
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
@@ -15,7 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.covid.MapsFragment;
+import com.example.covid.izgled.MapsFragment;
 
 public class LocationHandler extends Service {
     private static final String TAG="LOCATION_LISTENER";

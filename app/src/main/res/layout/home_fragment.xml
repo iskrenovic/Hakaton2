@@ -7,7 +7,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.covid.UI.HomeViewModel" />
+            type="com.example.covid.izgled.HomeViewModel"/>
     </data>
     
     <androidx.constraintlayout.widget.ConstraintLayout

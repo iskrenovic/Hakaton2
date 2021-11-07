@@ -1,4 +1,4 @@
-package com.example.covid.UI;
+package com.example.covid.izgled;
 
 import android.location.Location;
 
@@ -26,8 +26,7 @@ public class RegisterSecondViewModel extends ViewModel {
     }
 
     private boolean canContinue() {
-        if (jmbg != null && location != null)
-            return false;
+        return  jmbg != null && location != null;
     }
 
     public interface Callback {

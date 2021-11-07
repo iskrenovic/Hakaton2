@@ -6,11 +6,21 @@
     <data>
         <variable
             name="vm"
-            type="com.example.covid.UI.RegisterSecondViewModel" />
+            type="com.example.covid.izgled.RegisterSecondViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <fragment
+            android:id="@+id/mapSelect"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+            android:layout_marginBottom="92dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></fragment>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
