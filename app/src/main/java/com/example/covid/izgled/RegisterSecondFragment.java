@@ -49,8 +49,8 @@ public class RegisterSecondFragment extends Fragment implements RegisterSecondVi
     }
 
     @Override
-    public void nextStep(String jmbg, Location location) {
-        callback.nextStep(jmbg, location);
+    public void nextStep(String jmbg, String username) {
+        callback.nextStep(jmbg,username, userLocation);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class RegisterSecondFragment extends Fragment implements RegisterSecondVi
 
 
     public interface Callback{
-        void nextStep(String jmbg, Location location);
+        void nextStep(String jmbg,String username, Location location);
     }
 
 }

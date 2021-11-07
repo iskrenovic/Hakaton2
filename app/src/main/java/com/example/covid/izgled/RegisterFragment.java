@@ -38,8 +38,8 @@ public class RegisterFragment extends Fragment implements RegisterViewModel.Call
     }
 
     @Override
-    public void nextStep(String name, String email, String password, String username) {
-        Profile.username = username;
+    public void nextStep(String name, String email, String password) {
+
         Profile.name = name;
         Profile.mail = email;
         Profile.password = password;

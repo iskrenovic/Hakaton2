@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Covid" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/dark_red</item>
+        <item name="colorAccent">@color/light_red</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
