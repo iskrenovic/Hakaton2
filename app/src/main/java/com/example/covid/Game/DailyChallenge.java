@@ -69,7 +69,7 @@ public class DailyChallenge {
         return diff / (1000 * 60*60*60*24) != 0;
     }
 
-    private void addToChallenge(int challengeId){
+    public void addToChallenge(int challengeId){
         switch (challengeId){
             case 1:
                 if(!c1.isDone()) {

@@ -47,8 +47,8 @@ public class NotificationCenter {
     }
 
     public static Notification createDailyNotification(Context cx){
-        return createNotification(cx, DAILY_CHALLENGE_CHANNEL_ID, R.drawable.ic_launcher_background, cx.getString(R.string.daily_challenge_notf_title),
-                cx.getString(R.string.daily_challenge_notf_text), NotificationManager.IMPORTANCE_DEFAULT)
+        return createNotification(cx, DAILY_CHALLENGE_CHANNEL_ID, R.drawable.ic_launcher_background, cx.getString(R.string.push_notifications_notf_title),
+                cx.getString(R.string.push_notifications_notf_text), NotificationManager.IMPORTANCE_HIGH)
                 .build();
     }
     private static NotificationCompat.Builder createNotification(Context cx, String channelId, int smallIcon, String title, String content, int priority){
@@ -64,7 +64,7 @@ public class NotificationCenter {
         PendingIntent pending = PendingIntent.getBroadcast(cx, DAILY_CHALLENGE_ID,intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager manager = (AlarmManager) cx.getSystemService(Context.ALARM_SERVICE);
         Date currentTime = Calendar.getInstance().getTime();
-        long time = currentTime.getTime() + 1000*60*60*24;
+        long time = currentTime.getTime() + 10000;
         manager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,time,pending);
     }
 
