@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class LocalSave {
 
@@ -29,22 +30,18 @@ public class LocalSave {
     }
 
     public static String readFromFile(Context cx, String fileName) {
-        File file = new File(cx.getFilesDir(), DIRECTORY_NAME + "/" + fileName);
-        StringBuilder text = new StringBuilder();
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line = br.readLine();
-            while(line!=null){
-                text.append(line);
-                text.append('\n');
-            }
-            br.close();
-            return text.toString();
-        } catch (IOException e) {
+        try {
+            String output = "";
+            Scanner scanner = new Scanner(new File(DIRECTORY_NAME + "/fileName"));
+            do{
+                output+= scanner.nextLine();
+                output+="\n";
+            }while(scanner.hasNext());
+            scanner.close();
+            return output;
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;
-
-
     }
 }
