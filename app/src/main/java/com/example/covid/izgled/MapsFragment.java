@@ -53,14 +53,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
     private static Location currentLocation;
     private JSONArray jsonArray;
     private static RequestQueue queue;
-
+    private static double size=(double)(1/1000);
     @Override
     public void cubesReceived(JSONArray data) {
-        try {
-            paint(data.getJSONObject(0));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
@@ -103,6 +99,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
     public static void setCurrentLocation(Location newLocation) {
         currentLocation.set(newLocation);
         FocusMapOnLocation();
+
     }
 
     private void setCubes(double dimension) {
@@ -115,54 +112,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
         int startY = (int) Math.floor(bounds.southwest.latitude / size);
         int endY = (int) Math.ceil(bounds.northeast.latitude / size);
 
-        /*for (int i = startX; i <= endX; i++) {
-            for (int j = startY; j <= endY; j++) {
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("longitude", i);
-                    jsonObject.put("latitude", j);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                jsonArray.put(jsonObject);
-            }
-        }*/
-        JSONObject jsonObject= new JSONObject();
-        JSONObject request=null;
-        jsonArray=new JSONArray();
-        try {
-            jsonObject.put("longitude",1);
-            jsonObject.put("latitude",1);
-            jsonArray.put(jsonObject);
-            jsonObject= new JSONObject();
-            jsonObject.put("longitude",11);
-            jsonObject.put("latitude",1);
-            jsonArray.put(jsonObject);
-            request= new JSONObject();
-            request.put("Cubes",jsonArray);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        request=new JSONObject();
-        try {
-            request.put("Cubes",jsonArray);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        String s=request.toString();
-        try {
-            ServerConnection.getCubes(getContext(),new JSONArray(s));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
         Random r= new Random();
         r.setSeed(7112021);
 
         for (int i = startX; i <= endX; i++) {
             for (int j = startY; j <= endY; j++) {
                 int color=0x00ff0000;
-                int transparency=r.nextInt(120);
+                int transparency=(int)(Math.abs(Math.sin(i)*Math.sin(j))*100);
                 color+=transparency*256*256*256;
                 Polygon p = map.addPolygon(new PolygonOptions()
                         .clickable(true)
@@ -180,9 +136,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
         }
     }
 
-    public void paint(JSONObject data) {
 
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -203,8 +157,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
     }
 
     public static void FocusMapOnLocation() {
-        if (currentLocation != null)
+        if (currentLocation != null) {
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 10));
+            int currX=(int)(currentLocation.getLongitude()/size);
+            int currY=(int)(currentLocation.getLatitude()/size);
+            int danger=(int)(Math.abs(Math.sin(currX)*Math.sin(currY))*100);
+
+        }
+
     }
 
     public static void setRequestQueue(Context cx) {
