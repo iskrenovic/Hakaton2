@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity implements ServerConnection.
 
     @Override
     public void userDataReceived(String data) {
-        homeFragment.DisplayMessage(data);
+
     }
 
     @Override
     public void userDataFailed() {
-        homeFragment.DisplayMessage("fail");
+
     }
 
     @Override
