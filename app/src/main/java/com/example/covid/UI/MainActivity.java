@@ -1,4 +1,4 @@
-package com.example.covid;
+package com.example.covid.UI;
 
 
 import android.content.ComponentName;
@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.os.IBinder;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.covid.Location.LocationHandler;
 import com.example.covid.Notifications.NotificationCenter;
+import com.example.covid.R;
 import com.example.covid.Storage.ServerConnection;
 import com.google.android.gms.location.FusedLocationProviderClient;
 

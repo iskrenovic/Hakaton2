@@ -1,4 +1,4 @@
-package com.example.covid;
+package com.example.covid.UI;
 
 
 import android.location.Location;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.covid.R;
 import com.example.covid.databinding.MapsFragmentBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

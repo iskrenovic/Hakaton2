@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.covid.MapsViewModel" />
+            type="com.example.covid.UI.MapsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
