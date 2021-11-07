@@ -1,5 +1,6 @@
 package com.example.covid.Location;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -69,14 +70,16 @@ public class LocationHandler extends Service {
         return START_STICKY;
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     public void onCreate() {
         Log.e(TAG, "onCreate");
         initializeLocationManager();
         try {
             locationManager.requestLocationUpdates(
-                    LocationManager.NETWORK_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
-                    locationListeners[1]);
+                    LocationManager.NETWORK_PROVIDER,LOCATION_INTERVAL,LOCATION_DISTANCE,
+                    locationListeners[1]
+            );
         } catch (java.lang.SecurityException ex) {
             Log.i(TAG, "fail to request location update, ignore", ex);
         } catch (IllegalArgumentException ex) {
