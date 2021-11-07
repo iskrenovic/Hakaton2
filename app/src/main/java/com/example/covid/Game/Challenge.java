@@ -1,4 +1,4 @@
-package com.example.covid;
+package com.example.covid.Game;
 
 public class Challenge {
     private String text;

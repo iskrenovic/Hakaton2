@@ -7,8 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.covid.Notifications.NotificationCenter;
+import com.example.covid.Storage.ServerConnection;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ServerConnection.ConnectionCallback {
+
+    private static final String URL = "http://159.89.18.129/api/";
 
     private HomeFragment homeFragment;
     private MapsFragment mapsFragment;
@@ -21,8 +24,32 @@ public class MainActivity extends AppCompatActivity {
         NotificationCenter.createNotificationChannels(this);
         NotificationCenter.scheduleDailyChallengeNotification(this);
 
+        homeFragment = new HomeFragment();
         mapsFragment = new MapsFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.homeFragment).commitAllowingStateLoss();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.mapsFragment).commitAllowingStateLoss();
+        ServerConnection.setRequestQueue(this);
+        ServerConnection.setCallback(this);
+        ServerConnection.requestUserData();
+    }
+
+    @Override
+    public void userDataReceived(String data) {
+        homeFragment.DisplayMessege(data);
+    }
+
+    @Override
+    public void userDataFailed() {
+        homeFragment.DisplayMessege("fail");
+    }
+
+    @Override
+    public void locationDataReceived(String data) {
+
+    }
+
+    @Override
+    public void locationDataFailed() {
+
     }
 }

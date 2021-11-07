@@ -1,10 +1,10 @@
-package com.example.covid;
+package com.example.covid.Game;
 
 import android.content.Context;
 
+import com.example.covid.R;
 import com.example.covid.Storage.LocalSave;
 
-import java.io.BufferedReader;
 import java.util.Calendar;
 import java.util.Date;
 
