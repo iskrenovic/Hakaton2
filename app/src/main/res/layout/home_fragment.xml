@@ -15,25 +15,175 @@
         android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{vm.text}"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="335dp"
+            android:layout_height="187dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:srcCompat="@drawable/button_dark"
+            tools:layout_editor_absoluteY="480dp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="335dp"
+            android:layout_height="187dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/button_background"
+            tools:layout_editor_absoluteY="39dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="42dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_white"
+            android:text="+"
+            android:onClick="@{()->vm.clickZad1()}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="216dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="588dp"
+            android:background="@drawable/textbox"
+            android:text="@{vm.zad2}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintStart_toStartOf="@+id/imageView5" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="335dp"
+            android:layout_height="187dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/button_gray"
+            tools:layout_editor_absoluteY="255dp" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="305dp"
-            android:layout_height="41dp"
-            android:layout_marginBottom="364dp"
+            android:layout_width="216dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="640dp"
             android:background="@drawable/textbox"
-            android:text="TextView"
+            android:text="@{vm.zad1}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.245"
+            app:layout_constraintStart_toStartOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="42dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_white"
+            android:text="+"
+            android:onClick="@{()->vm.clickZad2()}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="216dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="528dp"
+            android:background="@drawable/textbox"
+            android:text="@{vm.zad3}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintStart_toStartOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="42dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_white"
+            android:text="+"
+            android:onClick="@{()->vm.clickZad3()}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="146dp"
+            android:layout_height="99dp"
+            android:background="@drawable/button_white"
+            android:text="!"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="64sp"
+            android:textAlignment="center"
+
+            tools:layout_editor_absoluteX="237dp"
+            tools:layout_editor_absoluteY="578dp" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_white"
+            android:ems="10"
+            android:hint="Datum vakcinacije"
+            android:onValueChange="@{vm::datumChanged}"
+            android:inputType="date"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="97dp"
+            tools:layout_editor_absoluteY="265dp" />
+
+        <EditText
+            android:id="@+id/editTextNumberPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberPassword"
+            android:onValueChange="@{vm::dozaChanged}"
+            android:hint="Doza vakcine"
+            android:textAlignment="center"
+            android:background="@drawable/button_white"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="316dp" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="203dp"
+            android:layout_height="47dp"
+            android:background="@drawable/button_background"
+            android:text="Vakcinacija"
+            android:onClick="@{()->vm.vakcinacisan()}"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="101dp"
+            tools:layout_editor_absoluteY="378dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:text="POZOTIVAN"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

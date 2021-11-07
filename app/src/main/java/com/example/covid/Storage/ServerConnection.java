@@ -147,6 +147,10 @@ public class ServerConnection {
 
     }
 
+    public static void iAmInfeceted(){
+
+    }
+
     public interface DataCallback {
         void userDataReceived(String data);
         void userDataFailed();

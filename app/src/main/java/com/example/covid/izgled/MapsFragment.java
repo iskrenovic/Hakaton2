@@ -155,6 +155,11 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Server
         } catch (JSONException e) {
             e.printStackTrace();
         }
+<<<<<<< Updated upstream
+=======
+        String request="Cubes: "+jsonArray.toString();
+        ServerConnection.getCubes(getContext(),request);
+>>>>>>> Stashed changes
 
         Random r= new Random();
         r.setSeed(7112021);
