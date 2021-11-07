@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Danilo/Documents/GitHub/Hakaton2/app/src/main/res/drawable/textbox.xml" value="0.221875" />
         <entry key="..\:/Users/Danilo/Documents/GitHub/Hakaton2/app/src/main/res/layout/activity_login.xml" value="0.2140625" />
-        <entry key="..\:/Users/Danilo/Documents/GitHub/Hakaton2/app/src/main/res/layout/register_fragment.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/Danilo/Documents/GitHub/Hakaton2/app/src/main/res/layout/home_fragment.xml" value="0.22" />
+        <entry key="..\:/Users/Danilo/Documents/GitHub/Hakaton2/app/src/main/res/layout/register_fragment.xml" value="0.22" />
         <entry key="..\:/Users/Danilo/Documents/GitHub/Hakaton2/app/src/main/res/layout/register_second_fragment.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/Home/AndroidStudioProjects/Covid/app/src/main/res/layout/activity_main.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/Home/AndroidStudioProjects/Covid/app/src/main/res/layout/home_fragment.xml" value="0.22" />

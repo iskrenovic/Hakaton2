@@ -25,6 +25,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
@@ -36,15 +40,11 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private ArrayList<Coordinate> cubeCoordinate=new ArrayList<>();
     private boolean drawn=false;
     private static Location currentLocation;
+    private JSONArray jsonArray;
 
     private class Coordinate{
         public int x,y;
         public Coordinate(int x,int y){ this.x=x;this.y=y;}
-        public String toString(){
-            String result=""+x+""+y;
-            return result;
-        }
-
     }
     @Nullable
     @Override
@@ -80,6 +80,26 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         int startY=(int)Math.floor(bounds.southwest.latitude/size);
         int endY=(int)Math.ceil(bounds.northeast.latitude/size);
 
+        jsonArray=new JSONArray();
+        for(int i=startX;i<=endX;i++){
+            for(int j=startY;j<=endY;j++) {
+                JSONObject jsonObject=new JSONObject();
+                try {
+                    jsonObject.put("longitude",i);
+                    jsonObject.put("latitude",j);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                jsonArray.put(jsonObject);
+            }
+        }
+        JSONObject sendObject=new JSONObject();
+        try {
+            sendObject.put("Cubes",jsonArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         for(int i=startX;i<=endX;i++){
             for(int j=startY;j<=endY;j++){
@@ -94,7 +114,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 .fillColor(R.color.purple_700)
                 .strokeColor(R.color.transparent));
                 cubes.add(p);
-                cubeCoordinate.add(new Coordinate(i,j));
             }
         }
     }
@@ -120,4 +139,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         if(currentLocation!=null)
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()),10));
     }
+    public void RequestCubeColor(){
+
+    }
+
 }

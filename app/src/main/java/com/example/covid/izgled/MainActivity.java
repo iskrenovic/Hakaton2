@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements ServerConnection.
         homeFragment = new HomeFragment();
         mapsFragment = new MapsFragment();
         registerSecondFragment=new RegisterSecondFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.registerSecondFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.mapsFragment).commitAllowingStateLoss();
 
         ServerConnection.setRequestQueue(this);
         ServerConnection.setCallback(this);

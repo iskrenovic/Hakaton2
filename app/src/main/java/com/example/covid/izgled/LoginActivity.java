@@ -33,9 +33,7 @@ public class LoginActivity extends AppCompatActivity implements RegisterFragment
 
     @Override
     public void nextStep(Profile profile) {
-
         this.profile = profile;
-
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,this.registerSecondFragment).commitAllowingStateLoss();
 
     }

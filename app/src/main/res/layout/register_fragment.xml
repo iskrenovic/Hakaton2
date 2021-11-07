@@ -26,28 +26,34 @@
             android:id="@+id/etName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/textbox"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@{vm.name}"
+            app:layout_constraintBottom_toTopOf="@+id/etEmail"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/textbox"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:text="@{vm.email}"
+            app:layout_constraintBottom_toTopOf="@+id/etPassword"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etName" />
 
         <EditText
             android:id="@+id/etPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="35dp"
+            android:background="@drawable/textbox"
             android:ems="10"
             android:inputType="textPassword"
             android:text="@{vm.password}"
@@ -58,12 +64,13 @@
 
         <EditText
             android:id="@+id/etPassword2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="35"
             android:layout_marginBottom="176dp"
+            android:background="@drawable/textbox"
             android:ems="10"
-            android:text="@{vm.password2}"
             android:inputType="textPassword"
+            android:text="@{vm.password2}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
